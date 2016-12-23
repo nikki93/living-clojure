@@ -1,6 +1,9 @@
 (ns wonderland
   (:require [clojure.set :as s]))
 
+
+;; 1, 2
+
 (defn common-fav-foods [foods1 foods2]
   (let [food-set1 (set foods1)
         food-set2 (set foods2)
@@ -111,3 +114,42 @@
   (into [] {:a 1 :b 2 :c 3})
 
   )
+
+
+;; 3
+
+(def who-atom (atom :caterpillar))
+
+(defn change [who]
+  (case who
+    :caterpillar :chrysalis
+    :chrysalis :butterfly
+    :butterfly))
+
+(assoc {} :a 3)
+
+
+(comment
+
+  who-atom
+
+  @who-atom
+
+  (reset! who-atom :caterpillar)
+
+  (swap! who-atom change)
+
+  )
+
+
+(def who-agent (agent :caterpillar))
+
+(comment
+
+  @who-agent
+
+  (send who-agent change)
+
+  )
+
+
