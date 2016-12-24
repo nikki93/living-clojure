@@ -153,3 +153,84 @@
   )
 
 
+
+;; 4
+
+(comment
+
+
+  (class "caterpillar")
+
+  (.toUpperCase "caterpillar")
+
+  (.indexOf "caterpillar" "pillar")
+
+
+  )
+
+
+(ns caterpillar.network
+  (:import (java.net InetAddress)))
+
+(comment
+
+  (.getHostName (InetAddress/getByName "localhost"))
+
+
+  (doto (StringBuffer. "Who ")
+    (.append "are ")
+    (.append "you?")
+    (.toString))
+
+  )
+
+
+(defmulti who-are-you class)
+
+(defmethod who-are-you java.lang.String [input]
+  (str "String - who are you? " input))
+
+(defmethod who-are-you clojure.lang.Keyword [input]
+  (str "Keyword - who are you? " input))
+
+(defmethod who-are-you java.lang.Long [input]
+  (str "Number - who are you? " input))
+
+(comment
+
+  (who-are-you :alice)
+
+  )
+
+
+(defprotocol Edible
+  (bite-right-side [this])
+  (bite-left-side [this]))
+
+(defrecord WonderlandMushroom [color height]
+  Edible
+  (bite-right-side [this]
+    (str "The " color " bite makes you grow bigger"))
+  (bite-left-side [this]
+    (str "The " color " bite makes you grow smaller")))
+
+(defrecord RegularMushroom [color height]
+  Edible
+  (bite-right-side [this]
+    (str "The " color " bite tastes bad"))
+  (bite-left-side [this]
+    (str "The " color " bite tastes bad too")))
+
+(def alice-mushroom (WonderlandMushroom. "blue dots" "3 inches"))
+(def reg-mushroom (RegularMushroom. "brown" "1 inches"))
+
+(comment
+
+  (bite-right-side alice-mushroom)
+  (bite-left-side alice-mushroom)
+
+  (bite-right-side reg-mushroom)
+  (bite-left-side reg-mushroom)
+
+  )
+
