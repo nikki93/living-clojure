@@ -1,4 +1,4 @@
-(ns serpent-talk.core)
+(ns serpent-talk.talk)
 
 (defn foo
   "I don't do a whole lot."
