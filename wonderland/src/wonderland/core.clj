@@ -238,3 +238,31 @@
 
   )
 
+
+;; 8
+
+(comment (when (= 2 2) (println "It is four!")))
+
+(defn hi-queen [phrase]
+  (str phrase ", so please your Majesty."))
+
+(defn alice-hi-queen []
+  (hi-queen "My name is Alice"))
+
+(comment (alice-hi-queen))
+
+(defn march-hare-hi-queen []
+  (hi-queen "I'm the March Hare"))
+
+(comment (march-hare-hi-queen))
+
+(defn white-rabbit-hi-queen []
+  (hi-queen "I'm the White Rabbit"))
+
+(comment (white-rabbit-hi-queen))
+
+(defn mad-hatter-hi-queen []
+  (hi-queen "I'm the Mad Hatter"))
+
+(comment (mad-hatter-hi-queen))
+
