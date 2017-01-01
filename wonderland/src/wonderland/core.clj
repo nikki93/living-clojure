@@ -19,11 +19,15 @@
 
 (def adjs ["normal" "too small" "too big" "swimming"])
 
-(defn old-alice-is [in out]
-  (if (empty? in)
-    out
-    (alice-is (rest in)
-              (conj out (str "Alice is " (first in))))))
+(comment
+
+  (defn old-alice-is [in out]
+    (if (empty? in)
+      out
+      (alice-is (rest in)
+                (conj out (str "Alice is " (first in))))))
+
+  )
 
 (defn alice-is [input]
   (loop [in input out []]
