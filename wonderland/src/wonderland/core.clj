@@ -266,3 +266,17 @@
 
 (comment (mad-hatter-hi-queen))
 
+(comment
+  (defmacro def-hi-queen [name phrase]
+    (list 'defn name []
+          (list 'hi-queen phrase))))
+
+(defmacro def-hi-queen [name phrase]
+  `(defn ~(symbol name) []
+     (hi-queen ~phrase)))
+
+(def-hi-queen alice-hi-queen "My name is Alice")
+(def-hi-queen march-hare-hi-queen "I'm the March Hare")
+(def-hi-queen white-rabbit-hi-queen "I'm the White Rabbit")
+(def-hi-queen mad-hatter-hi-queen "I'm the Mad Hatter")
+
