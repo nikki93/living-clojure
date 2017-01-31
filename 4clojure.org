@@ -1,3 +1,10 @@
+* literals
+** (...): operations
+** '(...): quoted (list)
+** [...]: vector
+** #{...}: set
+** {...}: map
+
 * 1
 ** (= ... ...)
 * 2
@@ -72,3 +79,10 @@
 ** (mapcat ... ...
 * 30
 ** (partition-by ... ...)
+* 31
+* 41
+** (partition-all ... ...)
+** (take ... ...)
+** (dec ...)
+* 33
+** (repeat ...)
